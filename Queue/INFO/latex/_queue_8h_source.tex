@@ -1,0 +1,31 @@
+\hypertarget{_queue_8h_source}{}\doxysection{Queue.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef QUEUE\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define QUEUE\_H}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include  "{}GenericTypes.h"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_queue_struct}{QueueStruct}} \{}
+\DoxyCodeLine{8     uint16\_t Tail;}
+\DoxyCodeLine{9     uint16\_t Head;}
+\DoxyCodeLine{10     uint16\_t Count;}
+\DoxyCodeLine{11     uint8\_t SizeOfData;}
+\DoxyCodeLine{12     \textcolor{keywordtype}{void} *Buffer;}
+\DoxyCodeLine{13     uint16\_t BufferLength;}
+\DoxyCodeLine{14 \} \mbox{\hyperlink{struct_queue_struct}{Queue}};}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 uint8\_t \mbox{\hyperlink{_queue_8c_ac53876f496a50e5da92ea300d73db368}{QueueInit}} (\mbox{\hyperlink{struct_queue_struct}{Queue}} *This, \textcolor{keywordtype}{void} *Buffer, uint16\_t BufferLentgh, uint8\_t SizeOfData);}
+\DoxyCodeLine{17 uint8\_t \mbox{\hyperlink{_queue_8c_a0669fed5b989c7c29af6193d0fb09ec5}{QueueEnqueue}} (\mbox{\hyperlink{struct_queue_struct}{Queue}} *This, \textcolor{keywordtype}{void} *Data);}
+\DoxyCodeLine{18 uint8\_t \mbox{\hyperlink{_queue_8c_a62344f2918937670dce1623e0e5ab89a}{QueueDequeue}} (\mbox{\hyperlink{struct_queue_struct}{Queue}} *This, \textcolor{keywordtype}{void} *Data);}
+\DoxyCodeLine{19 uint8\_t \mbox{\hyperlink{_queue_8c_aeedc24767e97934f13202dbe04f81a41}{QueueRead}} (\mbox{\hyperlink{struct_queue_struct}{Queue}} *This, \textcolor{keywordtype}{void} *Data);}
+\DoxyCodeLine{20 uint8\_t \mbox{\hyperlink{_queue_8c_abefa60b1f51f2052a24ec58974b503e8}{QueueFull}} (\mbox{\hyperlink{struct_queue_struct}{Queue}} *This);}
+\DoxyCodeLine{21 uint8\_t \mbox{\hyperlink{_queue_8c_a4af034a67e8f0fa7f85da44f0a087b9c}{QueueEmpty}} (\mbox{\hyperlink{struct_queue_struct}{Queue}} *This);}
+\DoxyCodeLine{22 uint16\_t \mbox{\hyperlink{_queue_8c_a3427cf107e835ab9729a22044f01cd15}{QueueCount}} (\mbox{\hyperlink{struct_queue_struct}{Queue}} *This);}
+\DoxyCodeLine{23 \textcolor{keywordtype}{void} \mbox{\hyperlink{_queue_8c_ab8fb7a8b5450fa75954781e12a711ca2}{QueueInfo}} (\mbox{\hyperlink{struct_queue_struct}{Queue}} *This);}
+\DoxyCodeLine{24 \textcolor{keywordtype}{void} \mbox{\hyperlink{_queue_8c_ac678a301d349de516b365d9ed8e15e82}{QueueFlush}} (\mbox{\hyperlink{struct_queue_struct}{Queue}} *This);}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
