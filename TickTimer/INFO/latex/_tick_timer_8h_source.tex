@@ -1,0 +1,25 @@
+\hypertarget{_tick_timer_8h_source}{}\doxysection{Tick\+Timer.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef TICK\_TIMER\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define TICK\_TIMER\_H}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}GenericTypes.h"{}} }
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{8    uint32\_t Start;}
+\DoxyCodeLine{9    uint32\_t Interval;}
+\DoxyCodeLine{10 \}\mbox{\hyperlink{struct_tick_timer}{TickTimer}};}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keywordtype}{void} \mbox{\hyperlink{_tick_timer_8c_aa2000777aabee9066ddb88cffe9f64a2}{TickTimerReset}}(\mbox{\hyperlink{struct_tick_timer}{TickTimer}} *T);}
+\DoxyCodeLine{13 \textcolor{keywordtype}{void} \mbox{\hyperlink{_tick_timer_8c_a4051006e47da968cd29c0001a38a81d0}{TickTimerRestart}}(\mbox{\hyperlink{struct_tick_timer}{TickTimer}} *T);}
+\DoxyCodeLine{14 \textcolor{keywordtype}{void} \mbox{\hyperlink{_tick_timer_8c_a7141a0736bc7df94386a7f6c852cd52c}{TickTimerSet}}(\mbox{\hyperlink{struct_tick_timer}{TickTimer}} *T, uint32\_t Interval);}
+\DoxyCodeLine{15 \textcolor{keywordtype}{char} \mbox{\hyperlink{_tick_timer_8c_a7a6b04d5b0362b4852aca6e5f9c793e2}{TickTimerExpired}}(\mbox{\hyperlink{struct_tick_timer}{TickTimer}} *T);}
+\DoxyCodeLine{16 uint32\_t  \mbox{\hyperlink{_tick_timer_8c_ae8b6c3d202e2b2e3a40a53d138c86b53}{TickTimerGet}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{17 \textcolor{keywordtype}{void} \mbox{\hyperlink{_tick_timer_8c_a0b65a6a7f31912f7b9b7bd136af150e9}{TickTimerCounter}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{18 \textcolor{keywordtype}{void} \mbox{\hyperlink{_tick_timer_8c_a6a19ee31cab87b37cf118cf774fa0576}{TickEnableCounter}}(BOOL value);}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

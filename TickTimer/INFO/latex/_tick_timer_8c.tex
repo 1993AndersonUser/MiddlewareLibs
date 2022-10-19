@@ -1,0 +1,183 @@
+\hypertarget{_tick_timer_8c}{}\doxysection{Tick\+Timer.\+c File Reference}
+\label{_tick_timer_8c}\index{TickTimer.c@{TickTimer.c}}
+
+
+Controle de timer genérico.  
+
+
+{\ttfamily \#include \char`\"{}Tick\+Timer.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_tick_timer_8c_aa2000777aabee9066ddb88cffe9f64a2}{Tick\+Timer\+Reset}} (\mbox{\hyperlink{struct_tick_timer}{Tick\+Timer}} $\ast$T)
+\begin{DoxyCompactList}\small\item\em Reset o contador do timer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_tick_timer_8c_a4051006e47da968cd29c0001a38a81d0}{Tick\+Timer\+Restart}} (\mbox{\hyperlink{struct_tick_timer}{Tick\+Timer}} $\ast$T)
+\begin{DoxyCompactList}\small\item\em Restart (zera variável) do contador do timer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_tick_timer_8c_a7141a0736bc7df94386a7f6c852cd52c}{Tick\+Timer\+Set}} (\mbox{\hyperlink{struct_tick_timer}{Tick\+Timer}} $\ast$T, uint32\+\_\+t Interval)
+\begin{DoxyCompactList}\small\item\em Adiciona um valor de tempo, em ms, na estrutura do contador. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{_tick_timer_8c_a7a6b04d5b0362b4852aca6e5f9c793e2}{Tick\+Timer\+Expired}} (\mbox{\hyperlink{struct_tick_timer}{Tick\+Timer}} $\ast$T)
+\begin{DoxyCompactList}\small\item\em Verifica se o timer setado estourou. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{_tick_timer_8c_ae8b6c3d202e2b2e3a40a53d138c86b53}{Tick\+Timer\+Get}} (void)
+\begin{DoxyCompactList}\small\item\em Verifica o valor do contador que da a base de tempo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_tick_timer_8c_a0b65a6a7f31912f7b9b7bd136af150e9}{Tick\+Timer\+Counter}} (void)
+\begin{DoxyCompactList}\small\item\em Gera a base de tempo, incrementando o contador. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_tick_timer_8c_a6a19ee31cab87b37cf118cf774fa0576}{Tick\+Enable\+Counter}} (BOOL value)
+\begin{DoxyCompactList}\small\item\em Ativa ou desativa o contador. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_tick_timer_8c_a85609278353e1179898bee021a560a80}\label{_tick_timer_8c_a85609278353e1179898bee021a560a80}} 
+volatile uint32\+\_\+t {\bfseries Ticks} = 0
+\item 
+\mbox{\Hypertarget{_tick_timer_8c_a75b15e34bb6ca754c9c12f5370e31594}\label{_tick_timer_8c_a75b15e34bb6ca754c9c12f5370e31594}} 
+volatile uint32\+\_\+t {\bfseries Ticks\+Atomic} = 0
+\item 
+\mbox{\Hypertarget{_tick_timer_8c_acd349e44367d789fa89ba423853dd217}\label{_tick_timer_8c_acd349e44367d789fa89ba423853dd217}} 
+volatile BOOL {\bfseries enable\+Ticks} = FALSE
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Controle de timer genérico. 
+
+\begin{DoxyWarning}{Warning}
+V1.\+0 
+\end{DoxyWarning}
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000001}{Todo}}]\end{DoxyRefDesc}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000001}{Bug}}]\end{DoxyRefDesc}
+\begin{DoxyCopyright}{Copyright}
+Tonederm -\/ Anderson Fortes 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_tick_timer_8c_a6a19ee31cab87b37cf118cf774fa0576}\label{_tick_timer_8c_a6a19ee31cab87b37cf118cf774fa0576}} 
+\index{TickTimer.c@{TickTimer.c}!TickEnableCounter@{TickEnableCounter}}
+\index{TickEnableCounter@{TickEnableCounter}!TickTimer.c@{TickTimer.c}}
+\doxysubsubsection{\texorpdfstring{TickEnableCounter()}{TickEnableCounter()}}
+{\footnotesize\ttfamily void Tick\+Enable\+Counter (\begin{DoxyParamCaption}\item[{BOOL}]{value }\end{DoxyParamCaption})}
+
+
+
+Ativa ou desativa o contador. 
+
+@\+Required execution rate\+: Evento 
+\begin{DoxyParams}{Parameters}
+{\em TRUE} & ou FALSE \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_tick_timer_8c_a0b65a6a7f31912f7b9b7bd136af150e9}\label{_tick_timer_8c_a0b65a6a7f31912f7b9b7bd136af150e9}} 
+\index{TickTimer.c@{TickTimer.c}!TickTimerCounter@{TickTimerCounter}}
+\index{TickTimerCounter@{TickTimerCounter}!TickTimer.c@{TickTimer.c}}
+\doxysubsubsection{\texorpdfstring{TickTimerCounter()}{TickTimerCounter()}}
+{\footnotesize\ttfamily void Tick\+Timer\+Counter (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Gera a base de tempo, incrementando o contador. 
+
+@\+Required execution rate\+: 1ms 
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_tick_timer_8c_a7a6b04d5b0362b4852aca6e5f9c793e2}\label{_tick_timer_8c_a7a6b04d5b0362b4852aca6e5f9c793e2}} 
+\index{TickTimer.c@{TickTimer.c}!TickTimerExpired@{TickTimerExpired}}
+\index{TickTimerExpired@{TickTimerExpired}!TickTimer.c@{TickTimer.c}}
+\doxysubsubsection{\texorpdfstring{TickTimerExpired()}{TickTimerExpired()}}
+{\footnotesize\ttfamily char Tick\+Timer\+Expired (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_tick_timer}{Tick\+Timer}} $\ast$}]{T }\end{DoxyParamCaption})}
+
+
+
+Verifica se o timer setado estourou. 
+
+@\+Required execution rate\+: Quando for verificar se o timer setado estourou. 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$T} & Estrutura \mbox{\hyperlink{struct_tick_timer}{Tick\+Timer}}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1\+: Timer estourou 0\+: Timer não estourou. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_tick_timer_8c_ae8b6c3d202e2b2e3a40a53d138c86b53}\label{_tick_timer_8c_ae8b6c3d202e2b2e3a40a53d138c86b53}} 
+\index{TickTimer.c@{TickTimer.c}!TickTimerGet@{TickTimerGet}}
+\index{TickTimerGet@{TickTimerGet}!TickTimer.c@{TickTimer.c}}
+\doxysubsubsection{\texorpdfstring{TickTimerGet()}{TickTimerGet()}}
+{\footnotesize\ttfamily uint32\+\_\+t Tick\+Timer\+Get (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Verifica o valor do contador que da a base de tempo. 
+
+@\+Required execution rate\+: Evento. 
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Contador da base de tempo. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_tick_timer_8c_aa2000777aabee9066ddb88cffe9f64a2}\label{_tick_timer_8c_aa2000777aabee9066ddb88cffe9f64a2}} 
+\index{TickTimer.c@{TickTimer.c}!TickTimerReset@{TickTimerReset}}
+\index{TickTimerReset@{TickTimerReset}!TickTimer.c@{TickTimer.c}}
+\doxysubsubsection{\texorpdfstring{TickTimerReset()}{TickTimerReset()}}
+{\footnotesize\ttfamily void Tick\+Timer\+Reset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_tick_timer}{Tick\+Timer}} $\ast$}]{T }\end{DoxyParamCaption})}
+
+
+
+Reset o contador do timer. 
+
+@\+Required execution rate\+: Evento. 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$T} & Estrutura \mbox{\hyperlink{struct_tick_timer}{Tick\+Timer}}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_tick_timer_8c_a4051006e47da968cd29c0001a38a81d0}\label{_tick_timer_8c_a4051006e47da968cd29c0001a38a81d0}} 
+\index{TickTimer.c@{TickTimer.c}!TickTimerRestart@{TickTimerRestart}}
+\index{TickTimerRestart@{TickTimerRestart}!TickTimer.c@{TickTimer.c}}
+\doxysubsubsection{\texorpdfstring{TickTimerRestart()}{TickTimerRestart()}}
+{\footnotesize\ttfamily void Tick\+Timer\+Restart (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_tick_timer}{Tick\+Timer}} $\ast$}]{T }\end{DoxyParamCaption})}
+
+
+
+Restart (zera variável) do contador do timer. 
+
+@\+Required execution rate\+: Evento. 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$T} & Estrutura \mbox{\hyperlink{struct_tick_timer}{Tick\+Timer}}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_tick_timer_8c_a7141a0736bc7df94386a7f6c852cd52c}\label{_tick_timer_8c_a7141a0736bc7df94386a7f6c852cd52c}} 
+\index{TickTimer.c@{TickTimer.c}!TickTimerSet@{TickTimerSet}}
+\index{TickTimerSet@{TickTimerSet}!TickTimer.c@{TickTimer.c}}
+\doxysubsubsection{\texorpdfstring{TickTimerSet()}{TickTimerSet()}}
+{\footnotesize\ttfamily void Tick\+Timer\+Set (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_tick_timer}{Tick\+Timer}} $\ast$}]{T,  }\item[{uint32\+\_\+t}]{Interval }\end{DoxyParamCaption})}
+
+
+
+Adiciona um valor de tempo, em ms, na estrutura do contador. 
+
+@\+Required execution rate\+: Quando for setar um novo valor de tempo ao contador. 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$T} & Estrutura \mbox{\hyperlink{struct_tick_timer}{Tick\+Timer}}. \\
+\hline
+{\em Interval} & Intervalo do contador em ms. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}

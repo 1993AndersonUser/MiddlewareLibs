@@ -1,0 +1,27 @@
+\hypertarget{_events_manager_8h_source}{}\doxysection{Events\+Manager.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef EVENTS\_MANAGER\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define EVENTS\_MANAGER\_H}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}GenericTypes.h"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \{}
+\DoxyCodeLine{8    EVENT\_LOW = 0,   \textcolor{comment}{//Nivel baixo}}
+\DoxyCodeLine{9    EVENT\_HIGH,      \textcolor{comment}{//Nivel alto}}
+\DoxyCodeLine{10    EVENT\_FALLING,   \textcolor{comment}{//Borda de descida}}
+\DoxyCodeLine{11    EVENT\_RISING,    \textcolor{comment}{//Borda de subida}}
+\DoxyCodeLine{12 \}EventStatus;}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{15    uint8\_t State;}
+\DoxyCodeLine{16    uint8\_t Level;}
+\DoxyCodeLine{17 \}\mbox{\hyperlink{struct_event}{Event}};}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{keywordtype}{void} \mbox{\hyperlink{_events_manager_8c_ad92a8cc6144d19ea49520f27cd953885}{EventInit}}(\mbox{\hyperlink{struct_event}{Event}} *ThisEvent);}
+\DoxyCodeLine{20 EventStatus \mbox{\hyperlink{_events_manager_8c_a0a49c578c37b07cf3ce38146ebbe0402}{EventProcess}}(\mbox{\hyperlink{struct_event}{Event}} *ThisEvent, uint8\_t In);}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

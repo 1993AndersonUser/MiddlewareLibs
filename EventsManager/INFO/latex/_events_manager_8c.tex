@@ -1,0 +1,64 @@
+\hypertarget{_events_manager_8c}{}\doxysection{Events\+Manager.\+c File Reference}
+\label{_events_manager_8c}\index{EventsManager.c@{EventsManager.c}}
+
+
+Rotina de controle de eventos (LOW, HIGH, FALLING e RISING)  
+
+
+{\ttfamily \#include \char`\"{}Events\+Manager.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_events_manager_8c_ad92a8cc6144d19ea49520f27cd953885}{Event\+Init}} (\mbox{\hyperlink{struct_event}{Event}} $\ast$This\+Event)
+\begin{DoxyCompactList}\small\item\em Inicializa estrutura de controle do evento. \end{DoxyCompactList}\item 
+Event\+Status \mbox{\hyperlink{_events_manager_8c_a0a49c578c37b07cf3ce38146ebbe0402}{Event\+Process}} (\mbox{\hyperlink{struct_event}{Event}} $\ast$This\+Event, uint8\+\_\+t In)
+\begin{DoxyCompactList}\small\item\em Verifica se ocorreram os eventos. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Rotina de controle de eventos (LOW, HIGH, FALLING e RISING) 
+
+\begin{DoxyCopyright}{Copyright}
+TONEDERM @\+Author\+: Anderson Fortes 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_events_manager_8c_ad92a8cc6144d19ea49520f27cd953885}\label{_events_manager_8c_ad92a8cc6144d19ea49520f27cd953885}} 
+\index{EventsManager.c@{EventsManager.c}!EventInit@{EventInit}}
+\index{EventInit@{EventInit}!EventsManager.c@{EventsManager.c}}
+\doxysubsubsection{\texorpdfstring{EventInit()}{EventInit()}}
+{\footnotesize\ttfamily void Event\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_event}{Event}} $\ast$}]{This\+Event }\end{DoxyParamCaption})}
+
+
+
+Inicializa estrutura de controle do evento. 
+
+@\+Required execution rate\+: Apenas inicialização 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$\+This\+Event} & Ponteiro para a estrutura de controle do evento \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_events_manager_8c_a0a49c578c37b07cf3ce38146ebbe0402}\label{_events_manager_8c_a0a49c578c37b07cf3ce38146ebbe0402}} 
+\index{EventsManager.c@{EventsManager.c}!EventProcess@{EventProcess}}
+\index{EventProcess@{EventProcess}!EventsManager.c@{EventsManager.c}}
+\doxysubsubsection{\texorpdfstring{EventProcess()}{EventProcess()}}
+{\footnotesize\ttfamily Event\+Status Event\+Process (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_event}{Event}} $\ast$}]{This\+Event,  }\item[{uint8\+\_\+t}]{In }\end{DoxyParamCaption})}
+
+
+
+Verifica se ocorreram os eventos. 
+
+@\+Required execution rate\+: Eventualmente 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$\+This\+Event} & Ponteiro para a estrutura de controle do evento \\
+\hline
+{\em In} & Valor 0-\/1. Indica o status atual do Input controlado \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Event\+Status\+: EVENT\+\_\+\+LOW, EVENT\+\_\+\+RISING, EVENT\+\_\+\+FALLING e EVENT\+\_\+\+HIGH 
+\end{DoxyReturn}

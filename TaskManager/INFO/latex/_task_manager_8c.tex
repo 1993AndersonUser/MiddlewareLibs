@@ -1,0 +1,189 @@
+\hypertarget{_task_manager_8c}{}\doxysection{Task\+Manager.\+c File Reference}
+\label{_task_manager_8c}\index{TaskManager.c@{TaskManager.c}}
+{\ttfamily \#include \char`\"{}Task\+Manager.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_task_manager_8c_a9e45f9614898df9d3f9ce6125a51cd76}{Task\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em Inicializa variáveis auxiliares. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_task_manager_8c_af273ff1bb466e0992440eb17db8a17e1}\label{_task_manager_8c_af273ff1bb466e0992440eb17db8a17e1}} 
+uint8\+\_\+t {\bfseries Get\+Id} (void)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{_task_manager_8c_a19e316be1acb8a4aaa71c3a62c873859}{Task\+Enqueue}} (\mbox{\hyperlink{struct_task}{Task}} $\ast$This\+Task)
+\begin{DoxyCompactList}\small\item\em Adiciona na fila a task. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{_task_manager_8c_a7b690d4f5e0d4641e9185a9a7f62e538}{Task\+Create}} (\mbox{\hyperlink{struct_task}{Task}} $\ast$This\+Task, uint32\+\_\+t Interval, Callback\+Ptr Execute, Callback\+Ptr On\+Start, Callback\+Ptr On\+Stop, Callback\+Ptr On\+End)
+\begin{DoxyCompactList}\small\item\em Cria uma nova task. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{_task_manager_8c_a6b18f5f069150d62d70ef0d633a2cf03}{Task\+Start}} (\mbox{\hyperlink{struct_task}{Task}} $\ast$This\+Task)
+\begin{DoxyCompactList}\small\item\em Inicializa a execução da task. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_task_manager_8c_acddf5b35dc661b984a5846853eef3072}\label{_task_manager_8c_acddf5b35dc661b984a5846853eef3072}} 
+uint8\+\_\+t {\bfseries Task\+Restart} (\mbox{\hyperlink{struct_task}{Task}} $\ast$This\+Task)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{_task_manager_8c_a15e715bb1fb9e74137b3a1a6673f12e3}{Task\+Stop}} (\mbox{\hyperlink{struct_task}{Task}} $\ast$This\+Task)
+\begin{DoxyCompactList}\small\item\em Pausa a execução da task. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{_task_manager_8c_acfb2a6a7cd6d2fbed6f5d3ebc6920996}{Task\+End}} (\mbox{\hyperlink{struct_task}{Task}} $\ast$This\+Task)
+\begin{DoxyCompactList}\small\item\em Retira a task da lista. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_task_manager_8c_af01107c0b7640ea3bb6873463026e3c6}\label{_task_manager_8c_af01107c0b7640ea3bb6873463026e3c6}} 
+uint8\+\_\+t {\bfseries Task\+Get\+Id} (\mbox{\hyperlink{struct_task}{Task}} $\ast$This\+Task)
+\item 
+void \mbox{\hyperlink{_task_manager_8c_a39b31918ddada72a3f608dc9342972a6}{Task\+Scheduler}} (void)
+\begin{DoxyCompactList}\small\item\em Função que executa as chamadas das tasks registradas. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_task_manager_8c_ab62e98931a6f57999920a5d8adb85268}\label{_task_manager_8c_ab62e98931a6f57999920a5d8adb85268}} 
+\mbox{\hyperlink{struct_task}{Task}} {\bfseries Tasks} \mbox{[}MAX\+\_\+\+TASKS\mbox{]}
+\item 
+\mbox{\Hypertarget{_task_manager_8c_a2692eb0eed959e895bbc842ef5bd584f}\label{_task_manager_8c_a2692eb0eed959e895bbc842ef5bd584f}} 
+\mbox{\hyperlink{struct_task}{Task}} $\ast$ {\bfseries Task\+Queue} \mbox{[}MAX\+\_\+\+TASKS\mbox{]}
+\item 
+\mbox{\Hypertarget{_task_manager_8c_adbddccf2f1f65573f183bd10e425e517}\label{_task_manager_8c_adbddccf2f1f65573f183bd10e425e517}} 
+uint8\+\_\+t {\bfseries Num\+Registered\+Tasks} = 0
+\item 
+\mbox{\Hypertarget{_task_manager_8c_a789c5e2eb4de8a077911145c96ad60fc}\label{_task_manager_8c_a789c5e2eb4de8a077911145c96ad60fc}} 
+uint8\+\_\+t {\bfseries Next\+Id} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyCopyright}{Copyright}
+TONEDERM @\+Author\+: Anderson Fortes 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_task_manager_8c_a7b690d4f5e0d4641e9185a9a7f62e538}\label{_task_manager_8c_a7b690d4f5e0d4641e9185a9a7f62e538}} 
+\index{TaskManager.c@{TaskManager.c}!TaskCreate@{TaskCreate}}
+\index{TaskCreate@{TaskCreate}!TaskManager.c@{TaskManager.c}}
+\doxysubsubsection{\texorpdfstring{TaskCreate()}{TaskCreate()}}
+{\footnotesize\ttfamily uint8\+\_\+t Task\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_task}{Task}} $\ast$}]{This\+Task,  }\item[{uint32\+\_\+t}]{Interval,  }\item[{Callback\+Ptr}]{Execute,  }\item[{Callback\+Ptr}]{On\+Start,  }\item[{Callback\+Ptr}]{On\+Stop,  }\item[{Callback\+Ptr}]{On\+End }\end{DoxyParamCaption})}
+
+
+
+Cria uma nova task. 
+
+@\+Required execution rate\+: Evento 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$\+This\+Task} & Ponteiro para estrutura da task. \\
+\hline
+{\em Interval} & Tempo em ms que a task será executada \\
+\hline
+{\em Execute} & Ponteiro de função para o Callback de estouro de tempo. \\
+\hline
+{\em On\+Start} & Ponteiro de função para o Callback de task Start. \\
+\hline
+{\em On\+Stop} & Ponteiro de função para o Callback de task Stop. \\
+\hline
+{\em On\+End} & Ponteiro de função para o Callback de task on\+End. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK ou NOK. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_task_manager_8c_acfb2a6a7cd6d2fbed6f5d3ebc6920996}\label{_task_manager_8c_acfb2a6a7cd6d2fbed6f5d3ebc6920996}} 
+\index{TaskManager.c@{TaskManager.c}!TaskEnd@{TaskEnd}}
+\index{TaskEnd@{TaskEnd}!TaskManager.c@{TaskManager.c}}
+\doxysubsubsection{\texorpdfstring{TaskEnd()}{TaskEnd()}}
+{\footnotesize\ttfamily uint8\+\_\+t Task\+End (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_task}{Task}} $\ast$}]{This\+Task }\end{DoxyParamCaption})}
+
+
+
+Retira a task da lista. 
+
+@\+Required execution rate\+: Evento 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$\+This\+Task} & Ponteiro para estrutura da task. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK ou NOK. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_task_manager_8c_a19e316be1acb8a4aaa71c3a62c873859}\label{_task_manager_8c_a19e316be1acb8a4aaa71c3a62c873859}} 
+\index{TaskManager.c@{TaskManager.c}!TaskEnqueue@{TaskEnqueue}}
+\index{TaskEnqueue@{TaskEnqueue}!TaskManager.c@{TaskManager.c}}
+\doxysubsubsection{\texorpdfstring{TaskEnqueue()}{TaskEnqueue()}}
+{\footnotesize\ttfamily uint8\+\_\+t Task\+Enqueue (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_task}{Task}} $\ast$}]{This\+Task }\end{DoxyParamCaption})}
+
+
+
+Adiciona na fila a task. 
+
+@\+Required execution rate\+: Evento 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$\+This\+Task} & Ponteiro para estrutura da task. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK ou NOK. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_task_manager_8c_a9e45f9614898df9d3f9ce6125a51cd76}\label{_task_manager_8c_a9e45f9614898df9d3f9ce6125a51cd76}} 
+\index{TaskManager.c@{TaskManager.c}!TaskInit@{TaskInit}}
+\index{TaskInit@{TaskInit}!TaskManager.c@{TaskManager.c}}
+\doxysubsubsection{\texorpdfstring{TaskInit()}{TaskInit()}}
+{\footnotesize\ttfamily void Task\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Inicializa variáveis auxiliares. 
+
+@\+Required execution rate\+: Apenas inicialização 
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_task_manager_8c_a39b31918ddada72a3f608dc9342972a6}\label{_task_manager_8c_a39b31918ddada72a3f608dc9342972a6}} 
+\index{TaskManager.c@{TaskManager.c}!TaskScheduler@{TaskScheduler}}
+\index{TaskScheduler@{TaskScheduler}!TaskManager.c@{TaskManager.c}}
+\doxysubsubsection{\texorpdfstring{TaskScheduler()}{TaskScheduler()}}
+{\footnotesize\ttfamily void Task\+Scheduler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Função que executa as chamadas das tasks registradas. 
+
+@\+Required execution rate\+: while(1) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$\+This\+Task} & Ponteiro para estrutura da task. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK ou NOK. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_task_manager_8c_a6b18f5f069150d62d70ef0d633a2cf03}\label{_task_manager_8c_a6b18f5f069150d62d70ef0d633a2cf03}} 
+\index{TaskManager.c@{TaskManager.c}!TaskStart@{TaskStart}}
+\index{TaskStart@{TaskStart}!TaskManager.c@{TaskManager.c}}
+\doxysubsubsection{\texorpdfstring{TaskStart()}{TaskStart()}}
+{\footnotesize\ttfamily uint8\+\_\+t Task\+Start (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_task}{Task}} $\ast$}]{This\+Task }\end{DoxyParamCaption})}
+
+
+
+Inicializa a execução da task. 
+
+@\+Required execution rate\+: Evento 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$\+This\+Task} & Ponteiro para estrutura da task. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK ou NOK. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_task_manager_8c_a15e715bb1fb9e74137b3a1a6673f12e3}\label{_task_manager_8c_a15e715bb1fb9e74137b3a1a6673f12e3}} 
+\index{TaskManager.c@{TaskManager.c}!TaskStop@{TaskStop}}
+\index{TaskStop@{TaskStop}!TaskManager.c@{TaskManager.c}}
+\doxysubsubsection{\texorpdfstring{TaskStop()}{TaskStop()}}
+{\footnotesize\ttfamily uint8\+\_\+t Task\+Stop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_task}{Task}} $\ast$}]{This\+Task }\end{DoxyParamCaption})}
+
+
+
+Pausa a execução da task. 
+
+@\+Required execution rate\+: Evento 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$\+This\+Task} & Ponteiro para estrutura da task. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK ou NOK. 
+\end{DoxyReturn}

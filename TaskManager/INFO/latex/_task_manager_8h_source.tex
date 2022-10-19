@@ -1,0 +1,39 @@
+\hypertarget{_task_manager_8h_source}{}\doxysection{Task\+Manager.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef TASK\_MANAGER\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define TASK\_MANAGER\_H}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}TaskManagerConfig.h"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}GenericTypes.h"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}TickTimer.h"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#ifndef NULL}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#define NULL 0U}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{typedef} void (*CallbackPtr)(void);}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_task}{Task}}\{}
+\DoxyCodeLine{16     uint8\_t Id;}
+\DoxyCodeLine{17     TickTimer Timer;}
+\DoxyCodeLine{18     uint8\_t Running;}
+\DoxyCodeLine{19     CallbackPtr Execute;}
+\DoxyCodeLine{20     CallbackPtr OnStart;}
+\DoxyCodeLine{21     CallbackPtr OnStop;}
+\DoxyCodeLine{22     CallbackPtr OnEnd;}
+\DoxyCodeLine{23 \}\mbox{\hyperlink{struct_task}{Task}};}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{keywordtype}{void} \mbox{\hyperlink{_task_manager_8c_a9e45f9614898df9d3f9ce6125a51cd76}{TaskInit}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{26 uint8\_t \mbox{\hyperlink{_task_manager_8c_a7b690d4f5e0d4641e9185a9a7f62e538}{TaskCreate}}(\mbox{\hyperlink{struct_task}{Task}} *ThisTask, uint32\_t Interval, CallbackPtr Execute, CallbackPtr OnStart, CallbackPtr OnStop, CallbackPtr OnEnd);}
+\DoxyCodeLine{27 uint8\_t \mbox{\hyperlink{_task_manager_8c_a6b18f5f069150d62d70ef0d633a2cf03}{TaskStart}}(\mbox{\hyperlink{struct_task}{Task}} *ThisTask);}
+\DoxyCodeLine{28 uint8\_t RestartTask(\mbox{\hyperlink{struct_task}{Task}} *ThisTask);}
+\DoxyCodeLine{29 uint8\_t \mbox{\hyperlink{_task_manager_8c_a15e715bb1fb9e74137b3a1a6673f12e3}{TaskStop}}(\mbox{\hyperlink{struct_task}{Task}} *ThisTask);}
+\DoxyCodeLine{30 uint8\_t \mbox{\hyperlink{_task_manager_8c_acfb2a6a7cd6d2fbed6f5d3ebc6920996}{TaskEnd}}(\mbox{\hyperlink{struct_task}{Task}} *ThisTask);}
+\DoxyCodeLine{31 uint8\_t TaskGetId(\mbox{\hyperlink{struct_task}{Task}} *ThisTask);}
+\DoxyCodeLine{32 \textcolor{keywordtype}{void} \mbox{\hyperlink{_task_manager_8c_a39b31918ddada72a3f608dc9342972a6}{TaskScheduler}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
